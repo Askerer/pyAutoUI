@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單爬蟲</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">簡單爬蟲</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="url">輸入網址:</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="https://www.example.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">開始爬蟲</button>
+        </form>
+        {% if title %}
+        <hr>
+        <h2>結果</h2>
+        <p><strong>網頁標題:</strong> {{ title }}</p>
+        <p><strong>網頁內容摘要:</strong> {{ text_content }}</p>
+        <p><strong>前5個連結:</strong></p>
+        <ul>
+            {% for link in links %}
+            <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html> 
